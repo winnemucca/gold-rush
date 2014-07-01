@@ -19,15 +19,21 @@ $(document).on('ready', function() {
 				height: 30
 
 			});
+
+
 			//part 2 attempted to reselect the image and delete it.  showed no effect
+			//tomorrow try z index of 2
+
 			// $(star).prepend('<div class="removeMe"> </div>');
 			// $('.removeMe').click(function(star){
 			// $(this).remove();
 			// console.log("removed icon");
 			// });
+	
 			console.log("mapstar works");
-
-
+			$(star).click(function(){
+				$(this).remove();
+			});
 
 	});
 
