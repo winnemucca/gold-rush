@@ -8,29 +8,40 @@ $(document).on('ready', function() {
 	$('.map').on('click', function(event) {
 		console.log("pageX: " + event.pageX + " pageY: " + event.pageY);
 
-		var star= $('<div><img id="mapstar" src="http://icongal.com/gallery/download/326647/128/png" ></div>');
+		var star= $('<img class="mapstar" src="http://icongal.com/gallery/download/326647/128/png">');
 		// var textBox = $('<div class="text-box"> <textarea style="input" placeholder="location"></textarea></div>');
 		var textBox = $('<div class="text-box"> <input style="textarea" placeholder="location"></div>');
-		// position allows user to select multiple selections per click
-		$('.map').before(star);
-		$(star).append(textBox)
+		
+
+	// position allows user to select multiple selections per click
+		$('.map').append(star);
+		// $(star).after(textBox);
+
+
+			
 		// $(star).css("top", event.pageX, "left", event.pageY, "position", "absolute", "z-index", "1", "height", 30 );
-			// console.log("mapstar works");
-			$('#mapstar').css({
-				top: event.pageY-30, 
-				left: event.pageX-17, 
+			
+
+		// sets location and size of star img
+			$(star).css({
+				top: event.pageY-111, 
+				left: event.pageX-16, 
 				position: "absolute", 
 				zIndex: "1", 
-				height: 30
+				height: 30,
+				width: 30
 
 			});
 
+
+
+// go back to this 
 			$(textBox).css({
-				// width: 10,
-				// height: 5,
+				width: 10,
+				height: 5,
 				zIndex: "3",
 				position: "absolute",
-				top: event.pageY-20,
+				top: event.pageY-100,
 				left: event.pageX+20
 
 			})
@@ -41,22 +52,25 @@ $(document).on('ready', function() {
 			// })
 
 
-			//part 2 attempted to reselect the image and delete it.  showed no effect
-			//tomorrow try z index of 2
-
-			// $(star).prepend('<div class="removeMe"> </div>');
-			// $('.removeMe').click(function(star){
-			// $(this).remove();
-			// console.log("removed icon");
-			// });
-			
 
 			console.log("mapstar works");
-			$(star).click(function(){
-				$(this).remove();
+
+
+// HOVER Function
+			// $(star).hover(function(){
+			// 	$(this).after(textBox)
+			// 	console.log('hovered')
+			// }
 			});
 
+			
 	});
 
+// REMOVE function - its is selecting the div also and this is why we are getting a new star when first is removed.
+			
+$(document).on('click', '.mapstar', function(){
+				$(this).remove();
+				console.log('removed star');
+			});
 
-});
+
